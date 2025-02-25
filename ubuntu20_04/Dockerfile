@@ -18,7 +18,8 @@ RUN apt update -y && \
         libcurl4-gnutls-dev \
         libxml2-dev \
         libssl-dev \
-        libfontconfig1-dev
+        libfontconfig1-dev \
+        git
 
 RUN apt update -qq && \
 		wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
@@ -27,6 +28,10 @@ RUN apt update -qq && \
 RUN apt update -y && \
     apt install -y r-base && \
     add-apt-repository ppa:c2d4u.team/c2d4u4.0+
+
+RUN apt update -y && \
+    apt install -y \
+        r-base-dev
 
 RUN add-apt-repository ppa:deadsnakes/ppa -y && \
     apt update -y && \
@@ -61,7 +66,8 @@ RUN apt update -y && \
         libfreetype6-dev \
         libpng-dev \
         libtiff5-dev \
-        libjpeg-dev
+        libjpeg-dev \
+        pandoc
 
 # Clean up after installation to reduce image size
 RUN apt-get clean && \
