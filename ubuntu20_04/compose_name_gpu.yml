@@ -1,0 +1,20 @@
+# docker compose -f compose_name_gpu.yml up -d
+
+version: '3'
+services:
+  r_v1:
+    image: downey21/repo_private:r_v1
+    stdin_open: true
+    tty: true
+    volumes:
+      - ~/Project:/root/Project
+      - ~/settings.json:/root/.vscode/settings.json
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
