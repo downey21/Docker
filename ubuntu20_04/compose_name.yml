@@ -1,5 +1,11 @@
 # docker compose -f compose_name.yml up -d
 
+# docker run -dit \
+#   --name r_v1 \
+#   --volume  ~/Project:/root/Project \
+#   --volume ~/settings.json:/root/.vscode/settings.json \
+#   downey21/repo_private:r_v1
+
 version: '3'
 services:
   r_v1:
