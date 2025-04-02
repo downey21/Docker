@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+# docker build -t r_v1 .
+
 # Set environment variables to non-interactive (this prevents some prompts)
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -19,7 +21,10 @@ RUN apt update -y && \
         libxml2-dev \
         libssl-dev \
         libfontconfig1-dev \
-        git
+        git \
+        curl \
+        vim \
+        tmux
 
 RUN apt update -qq && \
 		wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
