@@ -9,7 +9,7 @@
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "terminal.integrated.fontFamily": "monospace",
     "workbench.colorTheme": "Atom One Dark",
-    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
     "notebook.cellToolbarLocation": {
         "default": "right"
@@ -52,7 +52,6 @@
 
         "list.warningForeground": "#db03ac"
     },
-    "materialTheme.accent": "Sky",
     "workbench.sideBar.location": "right",
     "macros": {  
         "pythonExecSelectionAndCursorDown": [
