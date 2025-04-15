@@ -28,8 +28,10 @@
         "titleBar.inactiveBackground": "#0d101c",
         "titleBar.border": "#363a45",
 
-        "tab.activeBackground": "#0d101c",
-        "tab.inactiveBackground": "#21252b",
+        "tab.activeBackground": "#57d3043c",
+        "tab.activeForeground": "#f44560",
+        "tab.inactiveForeground": "#cccccc",
+        "tab.inactiveBackground": "#0d101c",
         "tab.border": "#363a45",
         "editorGroupHeader.tabsBackground": "#0d101c",
         "editorGroupHeader.border": "#363a45",
@@ -43,7 +45,12 @@
 
         "sideBar.background": "#0d101c",
         "sideBar.border": "#363a45",
-        "sideBarSectionHeader.background": "#21252b"
+        "sideBarSectionHeader.background": "#21252b",
+
+        "list.inactiveSelectionBackground": "#57d3043c",
+        "list.inactiveSelectionForeground": "#f44560",
+
+        "list.warningForeground": "#db03ac"
     },
     "materialTheme.accent": "Sky",
     "workbench.sideBar.location": "right",
