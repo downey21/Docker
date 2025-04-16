@@ -7,7 +7,6 @@
     "r.plot.useHttpgd": false,
     "r.sessionWatcher": false,
     "python.defaultInterpreterPath": "/usr/bin/python3",
-    "terminal.integrated.fontFamily": "monospace",
     "workbench.colorTheme": "Atom One Dark",
     "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
@@ -15,6 +14,7 @@
         "default": "right"
     },
     "terminal.integrated.fontSize": 13,
+    "editor.fontSize": 12.5,
     "workbench.colorCustomizations": {
         "terminal.background": "#0d101c",
         "terminalCursor.foreground": "#ffc900",
