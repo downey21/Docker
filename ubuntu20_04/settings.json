@@ -1,94 +1,16 @@
 {
-    "r.bracketedPaste": true,
     "r.rterm.linux": "/usr/local/bin/radian",
     "r.rterm.option": ["--r-binary=/usr/bin/R"],
     "r.rpath.linux": "/usr/bin/R",
+    "r.bracketedPaste": true,
     "r.lsp.diagnostics": false,
     "r.plot.useHttpgd": false,
     "r.sessionWatcher": false,
+
     "python.defaultInterpreterPath": "/usr/bin/python3",
-    "workbench.colorTheme": "Atom One Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "explorer.confirmDelete": false,
-    "notebook.cellToolbarLocation": {
-        "default": "right"
-    },
-    "terminal.integrated.fontSize": 13,
-    "editor.fontSize": 12.5,
-    "workbench.colorCustomizations": {
-        "terminal.background": "#0d101c",
-        "terminalCursor.foreground": "#ffc900",
-        
-        "editor.background": "#0d101c",
-        "editorCursor.foreground": "#ffc900",
-        "editor.selectionBackground": "#ffc80068",
-        "editor.selectionHighlightBackground": "#ffc80028",
-
-        "titleBar.activeBackground": "#0d101c",
-        "titleBar.inactiveBackground": "#0d101c",
-        "titleBar.border": "#363a45",
-
-        "tab.activeBackground": "#57d3043c",
-        "tab.activeForeground": "#f44560",
-        "tab.inactiveForeground": "#cccccc",
-        "tab.inactiveBackground": "#0d101c",
-        "tab.border": "#363a45",
-        "editorGroupHeader.tabsBackground": "#0d101c",
-        "editorGroupHeader.border": "#363a45",
-        "editorGroupHeader.tabsBorder": "#363a45",
-
-        "activityBar.background": "#0d101c",
-        "activityBar.border": "#363a45",
-
-        "statusBar.background": "#0d101c",
-        "statusBar.border": "#363a45",
-
-        "sideBar.background": "#0d101c",
-        "sideBar.border": "#363a45",
-        "sideBarSectionHeader.background": "#21252b",
-
-        "list.inactiveSelectionBackground": "#57d3043c",
-        "list.inactiveSelectionForeground": "#f44560",
-
-        "list.warningForeground": "#db03ac"
-    },
-    "workbench.sideBar.location": "right",
-    "macros": {  
-        "pythonExecSelectionAndCursorDown": [
-            "python.execSelectionInTerminal",
-            "cursorDown"
-        ],
-        "jupyterExeSelThenCursorDown":[
-            "jupyter.execSelectionInteractive",
-            "cursorDown"
-        ],
-        "jupyterRunCellThenCursorDown":[
-            "jupyter.runcurrentcelladvance",
-            "cursorDown"
-        ],
-        "interactiveExe":[
-            "interactive.execute",
-            "cursorDown"
-        ]
-    },
-    "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "none",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "workbench.startupEditor": "none",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.openSideBySideDirection": "down",
-    "workbench.panel.defaultLocation": "right",
-    "editor.minimap.enabled": false,
-    "[python]": {
-        "editor.formatOnType": true
-    },
-    "terminal.integrated.enableMultiLinePasteWarning": false,
     "python.terminal.launchArgs": [
         "-m",
         "IPython",
         "--no-autoindent"
-    ],
-    "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.inheritEnv": false
+    ]
 }
