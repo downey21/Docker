@@ -97,7 +97,7 @@ RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') &&
 ENV PATH="/usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/'):$PATH"
 
 RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') && \
-    /usr/local/texlive/2025/bin/$ARCH/tlmgr install xetex biber
+    /usr/local/texlive/2025/bin/$ARCH/tlmgr install xetex biber framed
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
