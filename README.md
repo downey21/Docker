@@ -14,6 +14,10 @@ A Docker environment based on **Ubuntu 20.04** with **Python 3.10** and **R** in
 
 A Docker environment based on **Ubuntu 22.04** with **Python 3.11** and **R** installed.
 
+### `ubuntu22_04_tex/`
+
+A Docker environment based on **Ubuntu 22.04** with **Python 3.11**, **R**, and a **TeX** installed.
+
 ### Key Components (shared across environments)
 
 - **`r_setup.R`**  
