@@ -82,7 +82,10 @@ RUN apt update -y && \
     apt install -y \
         perl \
         xz-utils \
-        fontconfig
+        fontconfig \
+        unzip \
+        make \
+        cabextract
 
 RUN curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar -xzf install-tl-unx.tar.gz && \
@@ -97,7 +100,54 @@ RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') &&
 ENV PATH="/usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/'):$PATH"
 
 RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') && \
-    /usr/local/texlive/2025/bin/$ARCH/tlmgr install xetex biber framed
+    /usr/local/texlive/2025/bin/$ARCH/tlmgr install \
+        scheme-small \
+        latex-bin \
+        beamer \
+        biblatex \
+        xcolor \
+        fontspec \
+        pgf \
+        etoolbox \
+        xetex \
+        biber \
+        framed \
+        pgfopts \
+        xkeyval \
+        kotex-utf \
+        unfonts-core \
+        kotex-utils \
+        kotex-plain \
+        xetexko 
+
+RUN mkdir -p /usr/local/share/texmf/tex/latex/metropolis && \
+    git clone --depth=1 https://github.com/matze/mtheme.git /usr/local/share/texmf/tex/latex/metropolis
+
+RUN git clone https://github.com/matze/mtheme.git /mtheme && \
+    cd /mtheme/source && \
+    /usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/latex beamerthememetropolis.ins && \
+    mkdir -p /usr/local/texlive/texmf-local/tex/latex/metropolis && \
+    cp *.sty /usr/local/texlive/texmf-local/tex/latex/metropolis && \
+    /usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/mktexlsr && \
+    rm -rf /mtheme
+
+RUN mkdir -p /usr/share/fonts/truetype/msttcorefonts && \
+    cd /usr/share/fonts/truetype/msttcorefonts && \
+    curl -LO https://downloads.sourceforge.net/corefonts/arial32.exe && \
+    cabextract -F '*.TTF' arial32.exe && \
+    rm arial32.exe && \
+    fc-cache -fv
+
+RUN arch=$(dpkg --print-architecture) && \
+    if [ "$arch" = "arm64" ]; then \
+        sed -i 's|http://archive.ubuntu.com/ubuntu|http://ports.ubuntu.com/ubuntu-ports|g' /etc/apt/sources.list && \
+        echo "deb http://ports.ubuntu.com/ubuntu-ports jammy universe" >> /etc/apt/sources.list; \
+    else \
+        echo "deb http://archive.ubuntu.com/ubuntu jammy universe" >> /etc/apt/sources.list; \
+    fi && \
+    apt-get update && \
+    apt-get install -y fonts-nanum && \
+    fc-cache -fv
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
