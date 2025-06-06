@@ -118,7 +118,8 @@ RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') &&
         unfonts-core \
         kotex-utils \
         kotex-plain \
-        xetexko 
+        xetexko \
+        minted
 
 RUN mkdir -p /usr/local/share/texmf/tex/latex/metropolis && \
     git clone --depth=1 https://github.com/matze/mtheme.git /usr/local/share/texmf/tex/latex/metropolis
