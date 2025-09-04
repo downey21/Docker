@@ -90,7 +90,7 @@ RUN apt update -y && \
 RUN curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     tar -xzf install-tl-unx.tar.gz && \
     cd install-tl-* && \
-    perl ./install-tl --no-interaction --scheme=small --no-doc-install --no-src-install && \
+    perl ./install-tl --no-interaction --scheme=medium --no-doc-install --no-src-install && \
     cd / && \
     rm -rf install-tl-* install-tl-unx.tar.gz
 
