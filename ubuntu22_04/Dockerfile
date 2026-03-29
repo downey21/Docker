@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
 
-# docker build -t docker.io/downey21/repo_private:r .
+# docker build -t docker.io/downey21/repo_public:r .
 
 # docker buildx build \
 #   --platform linux/amd64,linux/arm64 \
-#   -t docker.io/downey21/repo_private:r \
+#   -t docker.io/downey21/repo_public:r \
 #   --push \
 #   .
 

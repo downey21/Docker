@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
 
-# docker build -t docker.io/downey21/repo_private:r_tex .
+# docker build -t docker.io/downey21/repo_public:r_tex .
 
 # docker buildx build \
 #   --platform linux/amd64,linux/arm64 \
-#   -t docker.io/downey21/repo_private:r_tex \
+#   -t docker.io/downey21/repo_public:r_tex \
 #   --push \
 #   .
 
@@ -95,12 +95,12 @@ RUN curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tln
     rm -rf install-tl-* install-tl-unx.tar.gz
 
 RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') && \
-    echo "export PATH=/usr/local/texlive/2025/bin/$ARCH:\$PATH" >> /etc/profile.d/texlive.sh
+    echo "export PATH=/usr/local/texlive/2026/bin/$ARCH:\$PATH" >> /etc/profile.d/texlive.sh
 
-ENV PATH="/usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/'):$PATH"
+ENV PATH="/usr/local/texlive/2026/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/'):$PATH"
 
 RUN ARCH=$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/') && \
-    /usr/local/texlive/2025/bin/$ARCH/tlmgr install \
+    /usr/local/texlive/2026/bin/$ARCH/tlmgr install \
         scheme-small \
         latex-bin \
         beamer \
@@ -126,10 +126,10 @@ RUN mkdir -p /usr/local/share/texmf/tex/latex/metropolis && \
 
 RUN git clone https://github.com/matze/mtheme.git /mtheme && \
     cd /mtheme/source && \
-    /usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/latex beamerthememetropolis.ins && \
+    /usr/local/texlive/2026/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/latex beamerthememetropolis.ins && \
     mkdir -p /usr/local/texlive/texmf-local/tex/latex/metropolis && \
     cp *.sty /usr/local/texlive/texmf-local/tex/latex/metropolis && \
-    /usr/local/texlive/2025/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/mktexlsr && \
+    /usr/local/texlive/2026/bin/$(uname -m | sed 's/x86_64/x86_64-linux/; s/aarch64/aarch64-linux/')/mktexlsr && \
     rm -rf /mtheme
 
 RUN mkdir -p /usr/share/fonts/truetype/msttcorefonts && \
