@@ -17,5 +17,5 @@ vector_package <-
 utils::install.packages(
     pkgs = vector_package,
     dependencies = TRUE,
-    repos = "https://cran.yu.ac.kr/"
+    repos = "https://cloud.r-project.org/"
 )
