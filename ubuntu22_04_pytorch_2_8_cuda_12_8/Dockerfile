@@ -1,12 +1,6 @@
 FROM ubuntu:22.04
 
-# docker build -t docker.io/downey21/repo_public:r .
-
-# docker buildx build \
-#   --platform linux/amd64,linux/arm64 \
-#   -t docker.io/downey21/repo_public:r \
-#   --push \
-#   .
+# docker build -t docker.io/downey21/repo_public:pytorch28_cuda128 .
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -83,6 +77,13 @@ RUN apt update -y && \
         libtiff5-dev \
         libjpeg-dev \
         pandoc
+
+# CUDA: 12.8
+# PyTorch: 2.8.0
+RUN pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+
+RUN pip install torch_geometric
+RUN pip install pyg_lib torch_scatter torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.8.0+cu128.html
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*

@@ -18,6 +18,14 @@ A Docker environment based on **Ubuntu 22.04** with **Python 3.11** and **R** in
 
 A Docker environment based on **Ubuntu 22.04** with **Python 3.11**, **R**, and a **TeX** installed.
 
+### `ubuntu22_04_pytorch_2_8_cuda_12_8/`
+
+A Docker environment based on **Ubuntu 22.04** with **Python 3.11**, **PyTorch 2.8**, **CUDA 12.8**, and **R** installed.
+
+### `ubuntu22_04_pytorch_2_8_cuda_12_8_tex/`
+
+A Docker environment based on **Ubuntu 22.04** with **Python 3.11**, **R**, **PyTorch 2.8**, **CUDA 12.8** and a **TeX** installed.
+
 ### Key Components (shared across environments)
 
 - **`r_setup.R`**  
